@@ -18,7 +18,7 @@ class History {
      *
      * @return mixed
      */
-    public function getIdHistory()
+    public function getId_history()
     {
         return $this->id_history;
     }
@@ -29,9 +29,12 @@ class History {
      * @param mixed id_history
      *
      */
-    public function setIdHistory($id_history)
+    public function setId_history($id_history)
     {
-        $this->id_history = $id_history;
+        $id_history = (int) $id_history;
+        if (is_int($id_history) && $id_history > 0) {
+          $this->id_history = $id_history;
+        }
     }    
     
     /**
@@ -39,7 +42,7 @@ class History {
      *
      * @return mixed
      */
-    public function getIdBook()
+    public function getId_book()
     {
         return $this->id_book;
     }
@@ -50,9 +53,12 @@ class History {
      * @param mixed id_book
      *
      */
-    public function setIdBook($id_book)
+    public function setId_book($id_book)
     {
-        $this->id_book = $id_book;
+        $id_book = (int) $id_book;
+        if (is_int($id_book) && $id_book > 0) {
+          $this->id_book = $id_book;
+        }
     }    
     
     /**
@@ -60,7 +66,7 @@ class History {
      *
      * @return mixed
      */
-    public function getIdUser()
+    public function getId_user()
     {
         return $this->id_user;
     }
@@ -71,9 +77,12 @@ class History {
      * @param mixed id_user
      *
      */
-    public function setIdUser($id_user)
+    public function setId_user($id_user)
     {
-        $this->id_user = $id_user;
+        $id_user = (int) $id_user;
+        if (is_int($id_user) && $id_user > 0) {
+          $this->id_user = $id_user;
+        }
     }    
     
     /**
@@ -81,7 +90,7 @@ class History {
      *
      * @return mixed
      */
-    public function getRentDate()
+    public function getRent_date()
     {
         return $this->rent_date;
     }
@@ -92,7 +101,7 @@ class History {
      * @param mixed rent_date
      *
      */
-    public function setRentDate($rent_date)
+    public function setRent_date($rent_date)
     {
         $this->rent_date = $rent_date;
     }    
@@ -102,7 +111,7 @@ class History {
      *
      * @return mixed
      */
-    public function getReturnDate()
+    public function getReturn_date()
     {
         return $this->return_date;
     }
@@ -113,7 +122,7 @@ class History {
      * @param mixed return_date
      *
      */
-    public function setReturnDate($return_date)
+    public function setReturn_date($return_date)
     {
         $this->return_date = $return_date;
     }

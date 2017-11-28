@@ -17,7 +17,7 @@ class User {
      *
      * @return mixed
      */
-    public function getIdUser()
+    public function getId_user()
     {
         return $this->id_user;
     }
@@ -28,9 +28,12 @@ class User {
      * @param mixed id_user
      *
      */
-    public function setIdUser($id_user)
+    public function setId_user($id_user)
     {
-        $this->id_user = $id_user;
+        $id_user = (int) $id_user;
+        if (is_int($id_user) && $id_user > 0) {
+          $this->id_user = $id_user;
+        }
     }    
     
     /**
@@ -38,7 +41,7 @@ class User {
      *
      * @return mixed
      */
-    public function getUserFname()
+    public function getUser_fname()
     {
         return $this->user_fname;
     }
@@ -49,9 +52,11 @@ class User {
      * @param mixed user_fname
      *
      */
-    public function setUserFname($user_fname)
+    public function setUser_fname($user_fname)
     {
-        $this->user_fname = $user_fname;
+        if(strlen($user_fname) <= 50 && strlen($user_fname) > 0 && preg_match('#^[a-zA-Z-]*$#', $user_fname)) {
+            $this->user_fname = $user_fname;
+          }
     }    
     
     /**
@@ -59,7 +64,7 @@ class User {
      *
      * @return mixed
      */
-    public function getUserLname()
+    public function getUser_lname()
     {
         return $this->user_lname;
     }
@@ -70,9 +75,11 @@ class User {
      * @param mixed user_lname
      *
      */
-    public function setUserLname($user_lname)
+    public function setUser_lname($user_lname)
     {
-        $this->user_lname = $user_lname;
+        if(strlen($user_lname) <= 50 && strlen($user_lname) > 0 && preg_match('#^[a-zA-Z-]*$#', $user_lname)) {
+            $this->user_lname = $user_lname;
+          }
     }    
     
     /**
@@ -80,7 +87,7 @@ class User {
      *
      * @return mixed
      */
-    public function getUserIdent()
+    public function getUser_ident()
     {
         return $this->user_ident;
     }
@@ -91,8 +98,10 @@ class User {
      * @param mixed user_ident
      *
      */
-    public function setUserIdent($user_ident)
+    public function setUser_ident($user_ident)
     {
-        $this->user_ident = $user_ident;
+        if(strlen($user_ident) <= 10 && strlen($user_ident) > 0 && preg_match('#^[a-zA-Z0-9]*$#', $user_ident)) {
+            $this->user_ident = $user_ident;
+          }
     }
 }

@@ -20,7 +20,7 @@ class Book {
      *
      * @return mixed
      */
-    public function getIdBook()
+    public function getId_book()
     {
         return $this->id_book;
     }
@@ -31,9 +31,12 @@ class Book {
      * @param mixed id_book
      *
      */
-    public function setIdBook($id_book)
+    public function setId_book($id_book)
     {
-        $this->id_book = $id_book;
+        $id_book = (int) $id_book;
+        if (is_int($id_book) && $id_book > 0) {
+          $this->id_book = $id_book;
+        }
     }    
     
     /**
@@ -54,7 +57,9 @@ class Book {
      */
     public function setTitle($title)
     {
-        $this->title = $title;
+        if(strlen($title) <= 50 && strlen($title) > 0 && preg_match('#^[a-zA-Z0-9-]*$#', $title)) {
+            $this->title = $title;
+          }
     }    
     
     /**
@@ -75,7 +80,9 @@ class Book {
      */
     public function setAuthor($author)
     {
-        $this->author = $author;
+        if(strlen($author) <= 50 && strlen($author) > 0 && preg_match('#^[a-zA-Z-]*$#', $author)) {
+            $this->author = $author;
+          }
     }
 
     /**
@@ -83,7 +90,7 @@ class Book {
      *
      * @return mixed
      */
-    public function getReleaseDate()
+    public function getRelease_date()
     {
         return $this->release_date;
     }
@@ -94,7 +101,7 @@ class Book {
      * @param mixed release_date
      *
      */
-    public function setReleaseDate($release_date)
+    public function setRelease_date($release_date)
     {
         $this->release_date = $release_date;
     }    
@@ -117,7 +124,9 @@ class Book {
      */
     public function setCategory($category)
     {
-        $this->category = $category;
+        if(strlen($category) <= 25 && strlen($category) > 0 && preg_match('#^[a-zA-Z-]*$#', $category)) {
+            $this->category = $category;
+          }
     }    
     
     /**
@@ -151,14 +160,14 @@ class Book {
         return $this->disponibility;
     }
 
-/**
- * Set the value of Disponibility
- *
- * @param mixed disponibility
- *
- */
-public function setDisponibility($disponibility)
-{
-    $this->disponibility = $disponibility;
-}
+    /**
+     * Set the value of Disponibility
+     *
+     * @param mixed disponibility
+     *
+     */
+    public function setDisponibility($disponibility)
+    {
+        $this->disponibility = $disponibility;
+    }
 }
