@@ -16,7 +16,7 @@ class UserManager {
     }
 
      // METHODS
-     public function addUser(User $user) {
+    public function addUser(User $user) {
         try {
             $this->_db->beginTransaction();
 
@@ -63,7 +63,7 @@ class UserManager {
     }
 
     // checks if the user exists
-    public function userExists(user $user)
+    public function userExists(User $user)
     {
         $query = $this->_db->query("SELECT * FROM users WHERE id_user = ".$user->getId_user());
         $data = $query->fetch(PDO::FETCH_ASSOC);

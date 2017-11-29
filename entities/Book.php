@@ -103,7 +103,11 @@ class Book {
      */
     public function setRelease_date($release_date)
     {
-        $this->release_date = $release_date;
+        $release_date = (int) $release_date;
+        if (is_int($release_date)) {
+            $this->release_date = $release_date;
+        }
+        
     }    
     
     /**
