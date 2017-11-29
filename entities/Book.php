@@ -8,7 +8,7 @@ class Book {
   private $author;
   private $release_date;
   private $category;
-  private $description;
+  private $Summary;
   private $disponibility;
 
   public function __construct($data) {
@@ -130,24 +130,24 @@ class Book {
     }    
     
     /**
-     * Get the value of Description
+     * Get the value of Summary
      *
      * @return mixed
      */
-    public function getDescription()
+    public function getSummary()
     {
-        return $this->description;
+        return $this->summary;
     }
 
     /**
-     * Set the value of Description
+     * Set the value of Summary
      *
-     * @param mixed description
+     * @param mixed summary
      *
      */
-    public function setDescription($description)
+    public function setSummary($summary)
     {
-        $this->description = $description;
+        $this->summary = $summary;
     }    
     
     /**
