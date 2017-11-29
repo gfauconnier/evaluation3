@@ -63,4 +63,16 @@ class BookManager {
         }
         return $books;
     }
+
+    // checks if the book exists
+    public function bookExists(Book $book)
+    {
+        $query = $this->_db->query("SELECT * FROM books WHERE id_book = ".$book->getId_book());
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+        if ($data) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
