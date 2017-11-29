@@ -41,6 +41,28 @@ if(isset($message)) {
     </tbody>
 </table>
 
+<table>
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last nale</th>
+            <th>User number</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach($users as $user){
+        ?>
+        <tr>
+            <td class="col-3"><?php echo $user->getUser_fname(); ?></td>
+            <td class="col-3"><?php echo $user->getUser_lname(); ?></td>
+            <td class="col-3"><?php echo $user->getUser_ident(); ?></td>
+        </tr>
+        <?php
+    }
+    ?>
+    </tbody>
+</table>
 
 <form action="" method="post">
     <label for="title">Titre : </label>
