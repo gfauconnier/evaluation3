@@ -8,7 +8,7 @@ class Book {
   private $author;
   private $release_date;
   private $category;
-  private $Summary;
+  private $summary;
   private $disponibility;
 
   public function __construct($data) {
@@ -57,7 +57,7 @@ class Book {
      */
     public function setTitle($title)
     {
-        if(strlen($title) <= 50 && strlen($title) > 0 && preg_match('#^[a-zA-Z0-9-]*$#', $title)) {
+        if(strlen($title) <= 50 && strlen($title) > 0 && preg_match('#^[a-zA-Z0-9- ]*$#', $title)) {
             $this->title = $title;
           }
     }    
@@ -80,7 +80,7 @@ class Book {
      */
     public function setAuthor($author)
     {
-        if(strlen($author) <= 50 && strlen($author) > 0 && preg_match('#^[a-zA-Z-]*$#', $author)) {
+        if(strlen($author) <= 50 && strlen($author) > 0 && preg_match('#^[a-zA-Z- ]*$#', $author)) {
             $this->author = $author;
           }
     }
@@ -124,7 +124,7 @@ class Book {
      */
     public function setCategory($category)
     {
-        if(strlen($category) <= 25 && strlen($category) > 0 && preg_match('#^[a-zA-Z-]*$#', $category)) {
+        if(strlen($category) <= 25 && strlen($category) > 0 && preg_match('#^[a-zA-Z- ]*$#', $category)) {
             $this->category = $category;
           }
     }    
