@@ -52,10 +52,13 @@ class BookManager {
     }
 
     // gets all books
-    public function getAllBooks()
+    public function getAllBooks($category)
     {
-        
-        $query = $this->_db->query("SELECT * FROM books");
+        $cat_sort = "";
+        if ($category != "") {
+            $cat_sort = " WHERE category = '".$category."'";
+        }
+        $query = $this->_db->query("SELECT * FROM books".$cat_sort);
         $books = $query->fetchAll(PDO::FETCH_ASSOC);
         // creates a new Book per query answer
         foreach ($books as $key => $book) {
