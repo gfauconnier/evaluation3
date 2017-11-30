@@ -1,6 +1,7 @@
 <?php
 
-class BookManager {
+class BookManager
+{
     private $_db;
     
     // constructor just calls connection to database
@@ -9,14 +10,15 @@ class BookManager {
         $this->setDb($db);
     }
     
-     //SETTER
+    //SETTER
     private function setDb(PDO $db)
     {
         $this->_db = $db;
     }
 
-     // METHODS
-    public function addBook(Book $book) {
+    // METHODS
+    public function addBook(Book $book)
+    {
         try {
             $this->_db->beginTransaction();
 
@@ -38,6 +40,27 @@ class BookManager {
             return 'Error while trying to create book';
         }
     }
+
+    // updates the book
+    // public function updateBook(Book $book) {
+    //     if ($this->bookExists($book)) {
+    //         try {
+    //             $this->_db->beginTransaction();
+
+    //             $query = $this->_db->prepare('UPDATE books SET disponibility = :disponibility WHERE id_book = :id');
+    //             $query->bindValue(':id', $book->getId_book(), PDO::PARAM_INT);
+    //             $query->bindValue(':disponibility', $book->getDisponibility(), PDO::PARAM_INT);
+    //             $query->execute();
+
+    //             $this->_db->commit();
+
+    //             return 'Book updated';
+    //         } catch (Exception $e) {
+    //             $this->_db->rollback();
+    //             return 'Error while trying to update book';
+    //         }
+    //     }
+    // }
 
     // gets the book depending on sent id
     public function getBook(Book $book)
