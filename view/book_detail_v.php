@@ -1,5 +1,11 @@
 <?php
 
+if(isset($message)) {
+    echo $message;
+} elseif (!isset($message) AND (isset($_POST['rent']) OR isset($_POST['return']))) {
+    echo "An error occured, the operation wasn't executed";
+}
+
 if ($book->getDisponibility()==1) {
     ?>
     <form action="" method="post">

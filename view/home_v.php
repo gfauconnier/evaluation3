@@ -50,7 +50,7 @@ if(isset($message)) {
         <?php
         foreach($books as $book){
             ?>
-            <tr>
+            <tr class="books" id="<?php echo $book->getId_book(); ?>" title="Show book details">
                 <td class="col-3"><?php echo $book->getTitle(); ?></td>
                 <td class="col-3"><?php echo $book->getAuthor(); ?></td>
                 <td class="col-3"><?php echo $book->getCategory(); ?></td>
@@ -88,7 +88,7 @@ if(isset($message)) {
         <?php
         foreach($users as $user){
             ?>
-            <tr>
+            <tr class="users" id="<?php echo $user->getId_user(); ?>" title="Show user details">
                 <td class="col-3"><?php echo $user->getUser_fname(); ?></td>
                 <td class="col-3"><?php echo $user->getUser_lname(); ?></td>
                 <td class="col-3"><?php echo $user->getUser_ident(); ?></td>
