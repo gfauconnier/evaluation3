@@ -40,8 +40,9 @@ class UserManager {
     // gets the user depending on sent id
     public function getUser(User $user)
     {
+        // id_user = ".$user->getId_user()." OR
         if ($this->userExists($user)) {
-            $query = $this->_db->query("SELECT * FROM users WHERE id_user = ".$user->getUser_id());
+            $query = $this->_db->query("SELECT * FROM users WHERE user_ident = '".$user->getUser_ident()."'");
             $data = $query->fetch(PDO::FETCH_ASSOC);
             $user->hydrate($data);
             return $user;
@@ -65,7 +66,7 @@ class UserManager {
     // checks if the user exists
     public function userExists(User $user)
     {
-        $query = $this->_db->query("SELECT * FROM users WHERE id_user = ".$user->getId_user());
+        $query = $this->_db->query("SELECT * FROM users WHERE user_ident = '".$user->getUser_ident()."'");
         $data = $query->fetch(PDO::FETCH_ASSOC);
         if ($data) {
             return true;
