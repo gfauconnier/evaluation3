@@ -3,11 +3,11 @@
 class History {
     use Hydrate;
 
-    private $id_history;
-    private $id_book;
-    private $id_user;
-    private $rent_date;
-    private $return_date;
+    protected $id_history;
+    protected $id_book;
+    protected $id_user;
+    protected $rent_date;
+    protected $return_date;
 
     public function __construct($data) {
         $this->hydrate($data);
