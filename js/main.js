@@ -7,6 +7,7 @@ $(document).ready(function () {
 // stacktable
 $('#book_table').stacktable()
 $('#user_table').stacktable()
+$('#bookrenters').stacktable()
 
 // bootstrap tabs display
 $('#accountTabs a').on('click', function(e) {
