@@ -70,7 +70,7 @@ class HistoryManager
         $query = $this->_db->query("SELECT history.rent_date, history.return_date, users.user_ident 
         FROM history INNER JOIN users 
         WHERE history.id_book = '".$book->getId_book()."' AND history.id_user = users.id_user 
-        ORDER BY history.id_history DESC");
+        ORDER BY history.id_history DESC LIMIT 10");
         $book_renters = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($book_renters as $key => $book_renter) {
             $book_renters[$key] = new BookRenters($book_renter);
@@ -84,7 +84,7 @@ class HistoryManager
         $query = $this->_db->query("SELECT history.rent_date, history.return_date, books.title 
         FROM history INNER JOIN books 
         WHERE history.id_user = '".$user->getId_user()."' AND history.id_book = books.id_book 
-        ORDER BY history.id_history DESC");
+        ORDER BY history.id_history DESC LIMIT 10");
         $rented_books = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($rented_books as $key => $rented_book) {
             $rented_books[$key] = new RentedBooks($rented_book);

@@ -1,4 +1,6 @@
 <?php
+require "template/head.php";
+require "template/header.php";
 
 if(isset($message)) {
     echo $message;
@@ -6,9 +8,26 @@ if(isset($message)) {
     echo "An error occured, the operation wasn't executed";
 }
 
-echo "<pre>";
-var_dump($book);
-echo "</pre>";
+?>
+<table>
+<tr>
+    <td>Title</td>
+    <td><?php echo $book->getTitle(); ?></td>
+</tr>
+<tr>
+    <td>Author</td>
+    <td><?php echo $book->getAuthor(); ?></td>
+</tr>
+<tr>
+    <td>Category</td>
+    <td><?php echo $book->getCategory(); ?></td>
+</tr>
+<tr>
+    <td>Summary</td>
+    <td><?php echo $book->getSummary(); ?></td>
+</tr>
+</table>
+<?php
 
 if ($book->getDisponibility()==1) {
     ?>
@@ -25,8 +44,28 @@ if ($book->getDisponibility()==1) {
     </form>
     <?php
 }
-
-echo "<pre>";
-var_dump($book_renters);
-echo "</pre>";
-
+?>
+<table>
+<thead>
+    <tr>
+        <th>User Number</th>
+        <th>Rent Date</th>
+        <th>Return Date</th>
+    </tr>
+</thead>
+<tbody>
+<?php
+foreach ($book_renters as $book_renter) {
+    ?>
+    <tr>
+        <td class="col-3"><?php echo $book_renter->getUser_ident(); ?></td>
+        <td class="col-3"><?php echo $book_renter->getRent_date(); ?></td>
+        <td class="col-3"><?php echo $book_renter->getReturn_date(); ?></td>
+    </tr>
+    <?php
+}
+?>
+</tbody>
+</table>
+<?php
+require 'template/footer.php';

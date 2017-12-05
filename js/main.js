@@ -8,6 +8,12 @@ $(document).ready(function () {
 $('#book_table').stacktable()
 $('#user_table').stacktable()
 
+// bootstrap tabs display
+$('#accountTabs a').on('click', function(e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+
 // changes the displayed categories on select change
 $('#select_cat').change(function () {
     if (this.value != 0) {
