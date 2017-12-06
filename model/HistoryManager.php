@@ -67,7 +67,7 @@ class HistoryManager
 
     // gets users who rented the sent book
     public function getBookRenters(Book $book) {
-        $query = $this->_db->query("SELECT history.rent_date, history.return_date, users.user_ident 
+        $query = $this->_db->query("SELECT history.rent_date, history.return_date, users.id_user, users.user_ident 
         FROM history INNER JOIN users 
         WHERE history.id_book = '".$book->getId_book()."' AND history.id_user = users.id_user 
         ORDER BY history.id_history DESC LIMIT 10");
@@ -81,7 +81,7 @@ class HistoryManager
 
     // gets all books rented by the user
     public function getRentedBooks(User $user) {
-        $query = $this->_db->query("SELECT history.rent_date, history.return_date, books.title 
+        $query = $this->_db->query("SELECT history.rent_date, history.return_date, books.title, books.id_book 
         FROM history INNER JOIN books 
         WHERE history.id_user = '".$user->getId_user()."' AND history.id_book = books.id_book 
         ORDER BY history.id_history DESC LIMIT 10");

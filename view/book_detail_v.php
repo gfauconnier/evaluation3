@@ -62,10 +62,10 @@ if ($book->getDisponibility()==1) {
         <?php
         foreach ($book_renters as $book_renter) {
             ?>
-            <tr>
+            <tr class="users" id="<?php echo $book_renter->getId_user(); ?>" title="Show user details">
                 <td class="col-3"><?php echo $book_renter->getUser_ident(); ?></td>
-                <td class="col-3"><?php echo $book_renter->getRent_date(); ?></td>
-                <td class="col-3"><?php echo $book_renter->getReturn_date(); ?></td>
+                <td class="col-3"><?php echo date("d-m-Y", strtotime($book_renter->getRent_date())); ?></td>
+                <td class="col-3"><?php echo date("d-m-Y", strtotime($book_renter->getReturn_date())); ?></td>
             </tr>
             <?php
         }
