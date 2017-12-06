@@ -30,7 +30,7 @@ if (isset($message)) {
             <label for="release_year">Release year : </label>
             <input type="text" id="release_year" name="release_date">
             <label for="category">Category : </label>
-            <select name="category" id="category" name="category">
+            <select name="category" id="category">
                 <option value="Adventure">Adventure</option>
                 <option value="Drama">Drama</option>
                 <option value="Fantasy">Fantasy</option>    
@@ -70,7 +70,7 @@ if (isset($message)) {
                 <td class="col-3"><?php echo $book->getTitle(); ?></td>
                 <td class="col-3"><?php echo $book->getAuthor(); ?></td>
                 <td class="col-3"><?php echo $book->getCategory(); ?></td>
-                <td class="col-3"><?php echo $book->getDisponibility()==1 ? '<i class="material-icons green">thumb_up</i>' : '<i class="material-icons red">thumb_down</i>'; ?></td>
+                <td class="col-3"><?php echo $book->getDisponibility()==1 ? '<i class="material-icons green">thumb_up</i>' : '<i class="material-icons red">thumb_down</i>'; ?><i class="material-icons">search</i></td>
             </tr>
             <?php
         }
@@ -119,6 +119,7 @@ if (isset($message)) {
         </tbody>
     </table>
     
+</div>
 </div>
 </div>
 <?php
