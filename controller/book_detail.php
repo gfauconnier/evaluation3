@@ -3,7 +3,7 @@ require_once '../model/data.php';
 require_once '../services/services.php';
 
 
-if (isset($_GET['id_book'])) {
+if (isset($_GET['id_book']) && !empty($_GET['id_book'])) {
     $book = new Book($_GET);
     if ($book_manager->getBook($book)) {
         if (isset($_POST['rent'])) {
