@@ -10,6 +10,7 @@ if(isset($message)) {
 
  <div class="container row">
     <table class="col-10 col-md-6">
+        <tfoot>   
         <tr>
             <td>First name</td>
             <td><?php echo $user->getUser_fname(); ?></td>
@@ -22,6 +23,7 @@ if(isset($message)) {
             <td>User number</td>
             <td><?php echo $user->getUser_ident(); ?></td>
         </tr>
+        </tfoot>
     </table>
 
     <div class="col-12 col-md-6">
