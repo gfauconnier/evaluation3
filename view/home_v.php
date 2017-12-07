@@ -22,24 +22,34 @@ if (isset($message)) {
           New Book
     </button>
     <div class="container collapse" id="collapseNewBook">
-        <form action="" method="post">
-            <label for="title">Titre : </label>
-            <input type="text" id="title" name="title">
-            <label for="author">Author : </label>
-            <input type="text" id="author" name="author">
-            <label for="release_year">Release year : </label>
-            <input type="text" id="release_year" name="release_date">
-            <label for="category">Category : </label>
-            <select name="category" id="category">
-                <option value="Adventure">Adventure</option>
-                <option value="Drama">Drama</option>
-                <option value="Fantasy">Fantasy</option>    
-                <option value="Romance">Romance</option>
-                <option value="Science-Fiction">Science-Fiction</option>
-            </select>
-            <label for="summary">Summary : </label>
-            <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
-            <input type="submit" name="newbook" value="Send">
+        <form action="" method="post" class="row">
+            <div class="col-12 col-md-5">
+                <label for="title" class="col-12">Title : </label>
+                <input type="text" id="title" name="title" class="col-12" required>
+            </div>
+            <div class="col-12 col-md-5">
+                <label for="author" class="col-12">Author : </label>
+                <input type="text" id="author" name="author" class="col-12" required>
+            </div>
+            <div class="col-12 col-md-5">
+                <label for="release_year" class="col-12">Release year : </label>
+                <input type="text" id="release_year" name="release_date" class="col-12" required>
+            </div>
+            <div class="col-12 col-md-5">
+                <label for="category" class="col-12">Category : </label>
+                <select name="category" id="category" class="col-12">
+                    <option value="Adventure">Adventure</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>    
+                    <option value="Romance">Romance</option>
+                    <option value="Science-Fiction">Science-Fiction</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="summary" class="col-12">Summary : </label>
+                <textarea name="summary" id="summary" rows="6" class="col-12 col-md-10"></textarea>
+            </div>
+            <input type="submit" name="newbook" value="Add book" class="btn btn-primary newbookbtn">
         </form>
     </div>
 
@@ -67,10 +77,10 @@ if (isset($message)) {
         foreach ($books as $book) {
             ?>
             <tr class="books" id="<?php echo $book->getId_book(); ?>" title="Show book details">
-                <td class="col-3"><?php echo $book->getTitle(); ?></td>
+                <td class="col-3"><?php echo $book->getTitle(); ?><a href="book_detail.php?id_book=<?php echo $book->getId_book(); ?>">&nbsp;<i class="material-icons">search</i></a></td>
                 <td class="col-3"><?php echo $book->getAuthor(); ?></td>
                 <td class="col-3"><?php echo $book->getCategory(); ?></td>
-                <td class="col-3"><?php echo $book->getDisponibility()==1 ? '<i class="material-icons green">thumb_up</i>' : '<i class="material-icons red">thumb_down</i>'; ?><i class="material-icons">search</i></td>
+                <td class="col-3"><?php echo $book->getDisponibility()==1 ? '<i class="material-icons green">thumb_up</i>' : '<i class="material-icons red">thumb_down</i>'; ?></td>
             </tr>
             <?php
         }
@@ -93,34 +103,34 @@ if (isset($message)) {
             <input type="text" id="lname" name="user_lname">
             <label for="ident">User number : </label>
             <input type="text" id="ident" name="user_ident">
-            <input type="submit" name="newuser" value="Send">
+            <input type="submit" name="newuser" value="Add user" class="btn btn-primary">
         </form>
     </div>
-    <table id="user_table">
-        <thead>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>User number</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        foreach ($users as $user) {
-            ?>
-            <tr class="users" id="<?php echo $user->getId_user(); ?>" title="Show user details">
-                <td class="col-3"><?php echo $user->getUser_fname(); ?></td>
-                <td class="col-3"><?php echo $user->getUser_lname(); ?></td>
-                <td class="col-3"><?php echo $user->getUser_ident(); ?></td>
-            </tr>
+        <table id="user_table">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>User number</th>
+                </tr>
+            </thead>
+            <tbody>
             <?php
-        }
-        ?>
-        </tbody>
-    </table>
+            foreach ($users as $user) {
+                ?>
+                <tr class="users" id="<?php echo $user->getId_user(); ?>" title="Show user details">
+                    <td class="col-3"><?php echo $user->getUser_fname(); ?>&nbsp;<a href="user_detail.php?id_user=<?php echo $user->getId_user(); ?>"><i class="material-icons">search</i></a></td>
+                    <td class="col-3"><?php echo $user->getUser_lname(); ?></td>
+                    <td class="col-3"><?php echo $user->getUser_ident(); ?></td>
+                </tr>
+                <?php
+            }
+            ?>
+            </tbody>
+        </table>
     
-</div>
-</div>
+    </div>
+    </div>
 </div>
 <?php
 require 'template/footer.php';

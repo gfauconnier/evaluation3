@@ -38,7 +38,7 @@ if(isset($message)) {
             foreach ($rented_books as $rented_book) {
                 ?>
                 <tr class="books" id="<?php echo $rented_book->getId_book(); ?>" title="Show book details">
-                    <td class="col-3"><?php echo $rented_book->getTitle(); ?></td>
+                    <td class="col-3"><?php echo $rented_book->getTitle(); ?>&nbsp;<a href="book_detail.php?id_book=<?php echo $rented_book->getId_book(); ?>"><i class="material-icons">search</i></a></td>
                     <td class="col-3"><?php echo date("d-m-Y", strtotime($rented_book->getRent_date())); ?></td>
                     <td class="col-3"><?php echo date("d-m-Y", strtotime($rented_book->getReturn_date())); ?></td>
                 </tr>

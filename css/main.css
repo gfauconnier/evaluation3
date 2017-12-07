@@ -6,6 +6,30 @@
     color: green;
 }
 
-i {
-    margin-left: 10px;
+#collapseNewBook, #collapseNewRenter {
+    margin-bottom: 20px;
+}
+
+table thead tr{
+    background-color: grey;
+}
+
+table tbody tr {
+    cursor: pointer;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #D3D3D3;
+}
+
+table tbody tr:hover {
+    background-color: #B2B2B2;
+}
+
+textarea {
+    resize: none;
+}
+
+.newbookbtn {
+    margin: auto;
 }

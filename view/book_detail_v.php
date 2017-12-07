@@ -7,11 +7,11 @@ if(isset($message)) {
 } elseif (!isset($message) AND (isset($_POST['rent']) OR isset($_POST['return']))) {
     echo "An error occured, the operation wasn't executed";
 }
-
 ?>
 <div class="container row">
 
     <table class="col-10 col-md-6">
+        <tfoot>
         <tr>
             <td>Title</td>
             <td><?php echo $book->getTitle(); ?></td>
@@ -28,6 +28,7 @@ if(isset($message)) {
             <td>Summary</td>
             <td><?php echo $book->getSummary(); ?></td>
         </tr>
+        </tfoot>
     </table>
 
     <div class="col-12 col-md-6">
@@ -63,7 +64,7 @@ if(isset($message)) {
             foreach ($book_renters as $book_renter) {
                 ?>
                 <tr class="users" id="<?php echo $book_renter->getId_user(); ?>" title="Show user details">
-                    <td class="col-3"><?php echo $book_renter->getUser_ident(); ?></td>
+                    <td class="col-3"><?php echo $book_renter->getUser_ident(); ?>&nbsp;<a href="user_detail.php?id_user=<?php echo $book_renter->getId_user(); ?>"><i class="material-icons">search</i></a></td>
                     <td class="col-3"><?php echo date("d-m-Y", strtotime($book_renter->getRent_date())); ?></td>
                     <td class="col-3"><?php echo date("d-m-Y", strtotime($book_renter->getReturn_date())); ?></td>
                 </tr>
