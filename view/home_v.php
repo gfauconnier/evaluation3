@@ -8,17 +8,17 @@ if (isset($message)) {
 
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item col-12 col-md-6 col-lg-3">
-          <a class="nav-link active" id="pills-books-tab" data-toggle="pill" href="#nav-books" role="tab" aria-controls="nav-books" aria-selected="true">book</a>
+          <a class="nav-link active" id="pills-books-tab" data-toggle="pill" href="#nav-books" role="tab" aria-controls="nav-books" aria-selected="true">View Books</a>
         </li>
         <li class="nav-item col-12 col-md-6 col-lg-3">
-          <a class="nav-link" id="pills-renters-tab" data-toggle="pill" href="#nav-renters" role="tab" aria-controls="nav-renters" aria-selected="true">renters</a>
+          <a class="nav-link" id="pills-renters-tab" data-toggle="pill" href="#nav-renters" role="tab" aria-controls="nav-renters" aria-selected="true">View Renters</a>
         </li>
 </ul>
 <div class="tab-content" id="nav-tabContent">
 
     
     <div class="tab-pane fade show active" id="nav-books" role="tabpanel" aria-labelledby="nav-books-tab">
-    <button class="btn btn-primary header_btn" type="button" data-toggle="collapse" data-target="#collapseNewBook" aria-expanded="false" aria-controls="collapseNewBook">
+    <button class="btn btn-primary header_btn newbook" type="button" data-toggle="collapse" data-target="#collapseNewBook" aria-expanded="false" aria-controls="collapseNewBook">
           New Book
     </button>
     <div class="container collapse" id="collapseNewBook">
@@ -92,7 +92,7 @@ if (isset($message)) {
 
     <div class="tab-pane fade" id="nav-renters" role="tabpanel" aria-labelledby="nav-renters-tab">
     <div class="tab-pane fade show active" id="nav-renters" role="tabpanel" aria-labelledby="nav-renterss-tab">
-    <button class="btn btn-primary header_btn" type="button" data-toggle="collapse" data-target="#collapseNewRenter" aria-expanded="false" aria-controls="collapseNewRenter">
+    <button class="btn btn-primary header_btn newuser" type="button" data-toggle="collapse" data-target="#collapseNewRenter" aria-expanded="false" aria-controls="collapseNewRenter">
           New Renter
     </button>
     <div class="container collapse" id="collapseNewRenter">

@@ -1,3 +1,10 @@
+#header {
+    width: 100vw;
+    margin-bottom: 20px;
+    background-color: lightseagreen;
+    min-height: 75px;
+}
+
 .red {
     color: red;
 }
@@ -30,6 +37,10 @@ textarea {
     resize: none;
 }
 
-.newbookbtn {
+.newbookbtn, .homebtn {
     margin: auto;
+}
+
+.renter_details, .newbook, .newuser {
+    margin: 10px;
 }

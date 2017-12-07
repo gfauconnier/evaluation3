@@ -8,8 +8,8 @@ if(isset($message)) {
 
  ?>
 
- <div class="container row">
-    <table class="col-10 col-md-6">
+ <div class="container row renter_details">
+    <table class="col-10 col-md-6 ">
         <tfoot>   
         <tr>
             <td>First name</td>
